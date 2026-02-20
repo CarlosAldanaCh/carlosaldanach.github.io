@@ -21,11 +21,11 @@ import SkillsList from "../React/SkillsList.tsx";
           ML & Analytics (FinTech, E-commerce) | Remote
         </h1>
 
-        <p class="text-md md:text-2xl text-[var(--white-icon)]">
+        <p class="text-md md:text-2xl text-[var(--white-icon)] leading-snug">
           I build end-to-end ML projects:
-          <span class="text-[var(--sec)] shiny-sec">
-            data cleaning → EDA → feature engineering → modeling → evaluation → business-ready insights.
-          </span>
+        <span class="shiny-sec font-medium">
+          data cleaning → EDA → feature engineering → modeling → evaluation → business-ready insights.
+        </span>
         </p>
       </div>
 
@@ -133,16 +133,38 @@ import SkillsList from "../React/SkillsList.tsx";
 
 <style is:global>
   .shiny-sec {
-    background: linear-gradient(135deg, #a476ff 25%, #eee5ff 50%, #a476ff 75%);
-    background-size: 400% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: shine 3s linear infinite;
+    /* Fallback sólido: garantiza legibilidad */
+    color: #a476ff;
+  }
+
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .shiny-sec {
+      background: linear-gradient(135deg, #a476ff 18%, #f2ecff 50%, #a476ff 82%);
+      background-size: 260% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+
+      /* “Separación” del fondo para que no se apague */
+      text-shadow:
+        0 0 14px rgba(164, 118, 255, 0.22),
+        0 0 2px rgba(242, 236, 255, 0.18);
+
+      /* Refuerza el color en pantallas donde se ve más tenue */
+      filter: saturate(1.25) brightness(1.12);
+
+      animation: shine 2.6s linear infinite;
+    }
   }
 
   @keyframes shine {
-    0% { background-position: 100% 50%; }
-    30%, 70% { background-position: 0% 50%; }
+    0% { background-position: 110% 50%; }
+    50% { background-position: 0% 50%; }
+    100% { background-position: 110% 50%; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .shiny-sec { animation: none; }
   }
 </style>
