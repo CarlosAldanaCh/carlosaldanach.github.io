@@ -1,10 +1,7 @@
 ---
-import { Image } from "astro:assets";
-import type { ImageMetadata } from "astro";
-
 interface Project {
   title: string;
-  image?: ImageMetadata;
+  image: string; // path inside /public
   repo: string;
   live?: string;
   status: string;
@@ -16,6 +13,7 @@ interface Project {
 const projects: Project[] = [
   {
     title: "Age Estimation — ResNet50 (Computer Vision)",
+    image: "/images/projects/01_age_estimation_resnet50.png",
     repo: "https://github.com/CarlosAldanaCh/age-estimation-resnet50",
     status: "Featured",
     summary:
@@ -25,15 +23,17 @@ const projects: Project[] = [
   },
   {
     title: "Gold Recovery Prediction (Industrial ML)",
+    image: "/images/projects/02_gold_recovery_prediction.png",
     repo: "https://github.com/CarlosAldanaCh/Zyfra-gold-recovery-machine-learning-",
     status: "Featured",
     summary:
       "Predicts gold recovery efficiency in an industrial metallurgical process with strong data cleaning + modeling.",
-    metrics: "Final sMAPE ≈ 6.4% / 6.8% vs baseline ≈ 11.3% (≈42% error reduction).",
+    metrics: "sMAPE ↓ 6.4% / 6.8% vs baseline ≈ 11.3% (≈42% error reduction).",
     tags: ["scikit-learn", "Regression", "sMAPE", "Feature Engineering"],
   },
   {
     title: "Used Car Price Prediction (Rusty Bargain)",
+    image: "/images/projects/03_used_car_price_prediction.png",
     repo: "https://github.com/CarlosAldanaCh/Rusty_bargain_car_price_prediction",
     status: "Featured",
     summary:
@@ -43,26 +43,32 @@ const projects: Project[] = [
   },
   {
     title: "IMDB Sentiment Classification (NLP)",
+    image: "/images/projects/04_imdb_sentiment_nlp.png",
     repo: "https://github.com/CarlosAldanaCh/sentiment-classification-imdb",
     status: "Case study",
     summary:
       "Sentiment analysis comparing TF-IDF baselines (LogReg/LinearSVC) vs fine-tuned BERT with proper evaluation.",
+    metrics: "Test F1 ↑ 0.9226 (BERT) vs ~0.895 (LinearSVC) and baseline (Dummy).",
     tags: ["NLP", "TF-IDF", "LogReg", "LinearSVC", "BERT"],
   },
   {
     title: "Beta Bank Churn Model (Classification)",
+    image: "/images/projects/05_beta_bank_churn.png",
     repo: "https://github.com/CarlosAldanaCh/Beta-bank-churn-model",
     status: "Case study",
     summary:
       "Customer churn prediction focused on F1 optimization plus AUC-ROC reporting and thresholding.",
+    metrics: "Best: Random Forest — F1 ↑ 0.63 • AUC ↑ 0.86 (meets target).",
     tags: ["Classification", "F1", "AUC-ROC", "Imbalanced Data"],
   },
   {
     title: "Customer Classification Project",
+    image: "/images/projects/06_customer_classification_ultra.png",
     repo: "https://github.com/CarlosAldanaCh/Customer-Classification-Project",
     status: "Case study",
     summary:
       "Supervised ML classification project with end-to-end workflow and clear reporting.",
+    metrics: "Accuracy ↑ 79.5% vs baseline 69.5% (+10.0 pp).",
     tags: ["Machine Learning", "Classification", "EDA", "Modeling"],
   },
 ];
@@ -80,28 +86,31 @@ const projects: Project[] = [
           const primary = project.live ?? readme;
 
           return (
-            <div class="group rounded-2xl border border-[#ffffff10] bg-[#14141466] hover:bg-[#1414149c] transition">
+            <div class="group rounded-2xl border border-[#ffffff10] bg-[#14141466] hover:bg-[#1414149c] transition overflow-hidden">
               <a
                 href={primary}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block rounded-2xl overflow-hidden"
+                class="block"
                 aria-label={`${project.title} - open`}
               >
                 <div class="relative">
-                  {project.image ? (
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      class="w-full h-52 md:h-64 object-cover group-hover:scale-[1.02] transition-transform duration-300"
-                    />
-                  ) : (
-                    <div class="w-full h-52 md:h-64 bg-gradient-to-br from-[#1a1a1a] to-[#0f0f0f] flex items-end p-5">
-                      <div class="text-lg font-semibold leading-tight">
-                        {project.title}
-                      </div>
-                    </div>
-                  )}
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    class="w-full h-52 md:h-64 object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                    loading="lazy"
+                  />
+
+                  <!-- readability overlay -->
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent"></div>
+
+                  <!-- status badge -->
+                  <div class="absolute top-4 left-4">
+                    <span class="text-xs px-3 py-1 rounded-full border border-[#ffffff10] bg-[#0b0b0bcc] text-[var(--white-icon)]">
+                      {project.status}
+                    </span>
+                  </div>
                 </div>
               </a>
 
@@ -109,7 +118,6 @@ const projects: Project[] = [
                 <div class="flex items-start gap-3">
                   <div class="flex-grow">
                     <h4 class="text-xl font-semibold leading-tight">{project.title}</h4>
-                    <div class="text-sm text-[var(--white-icon)]">{project.status}</div>
                   </div>
 
                   <div class="flex gap-2">
@@ -139,12 +147,16 @@ const projects: Project[] = [
                   </div>
                 </div>
 
-                <p class="text-sm md:text-base text-[var(--white-icon)] leading-relaxed">
+                <p class="text-sm md:text-base text-[var(--white-icon)]/90 leading-relaxed">
                   {project.summary}
                 </p>
 
                 {project.metrics ? (
-                  <p class="text-sm text-[var(--sec)] shiny-sec">{project.metrics}</p>
+                  <div class="rounded-xl border border-[#a476ff33] bg-[#0b0b0bcc] px-3 py-2">
+                    <p class="text-sm font-medium text-[var(--sec)] metrics-glow">
+                      {project.metrics}
+                    </p>
+                  </div>
                 ) : null}
 
                 <div class="flex flex-wrap gap-2 pt-1">
@@ -175,3 +187,9 @@ const projects: Project[] = [
     </a>
   </div>
 </section>
+
+<style is:global>
+  .metrics-glow {
+    text-shadow: 0 0 14px rgba(164, 118, 255, 0.35);
+  }
+</style>
