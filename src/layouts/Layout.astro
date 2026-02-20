@@ -1,36 +1,61 @@
 ---
-import '@fontsource-variable/montserrat';
+import "@fontsource-variable/montserrat";
 
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+
+const siteName = "Carlos Aldana Chico";
+const siteTagline = "Junior Data Scientist • ML & Analytics • Remote";
+
+const siteUrl = "https://carlosaldanach.github.io";
+
+const ogImage = `${siteUrl}/og.png`;
+
+const pageTitle = `${title} | ${siteName}`;
+const description =
+  "Bootcamp-trained Data Scientist (TripleTen) building end-to-end ML projects (regression, CV, NLP) with Python and PostgreSQL.";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Software Developer" />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <meta property="og:title" content="Oscar Hernandez" />
-    <meta property="og:description" content="Software Developer" />
-    <meta property="og:image" content="https://oscarhernandez.vercel.app/og.image.png" />
-    <meta property="og:url" content="https://oscarhernandez.vercel.app" />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Oscar Hernandez Portfolio" />
 
-    <title>{title}</title>
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={siteUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={`${siteName} Portfolio`} />
+
+    <!-- Twitter cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <title>{pageTitle}</title>
   </head>
+
   <body class="bg-[--background] sm:px-28 lg:px-20 px-9">
     <slot />
   </body>
 </html>
 
 <style is:global>
-
   :root {
     --background: #101010;
     --sec: #a476ff;
@@ -56,7 +81,6 @@ const { title } = Astro.props;
   }
 
   /* Scrollbar styles */
-
   ::-webkit-scrollbar {
     width: 15px;
   }
