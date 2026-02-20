@@ -1,36 +1,26 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import type { ReactElement } from "react";
 
-const CategoryIcons: Record<string, JSX.Element> = {
-  "ML Modeling (Tabular)": (
+const CategoryIcons: Record<string, ReactElement> = {
+  "Machine Learning": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
       className="w-6 h-6 text-[var(--sec)] opacity-70"
     >
-      <path d="M3 3h18v2H3V3zm2 6h3v10H5V9zm5 4h3v6h-3v-6zm5-6h3v12h-3V7zm5 8h1v4h-1v-4z" />
+      <path d="M12 2a2 2 0 0 1 2 2v1.06a8 8 0 0 1 2.24.93l.75-.75a2 2 0 1 1 2.83 2.83l-.75.75A8 8 0 0 1 18.94 10H20a2 2 0 1 1 0 4h-1.06a8 8 0 0 1-.93 2.24l.75.75a2 2 0 1 1-2.83 2.83l-.75-.75A8 8 0 0 1 14 18.94V20a2 2 0 1 1-4 0v-1.06a8 8 0 0 1-2.24-.93l-.75.75a2 2 0 1 1-2.83-2.83l.75-.75A8 8 0 0 1 5.06 14H4a2 2 0 1 1 0-4h1.06a8 8 0 0 1 .93-2.24l-.75-.75A2 2 0 1 1 8.07 4.2l.75.75A8 8 0 0 1 10 5.06V4a2 2 0 0 1 2-2Zm0 6a4 4 0 1 0 0 8a4 4 0 0 0 0-8Z" />
     </svg>
   ),
 
-  "NLP (Text & Transformers)": (
+  "Analytics & EDA": (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
       className="w-6 h-6 text-[var(--sec)] opacity-70"
     >
-      <path d="M20 2H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h3v3l4-3h9a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2ZM4 4h16v13H10.3L9 18v-1H4V4Zm3 3h10v2H7V7Zm0 4h7v2H7v-2Z" />
-    </svg>
-  ),
-
-  "Computer Vision (CV)": (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="w-6 h-6 text-[var(--sec)] opacity-70"
-    >
-      <path d="M9 4a2 2 0 0 0-2 2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-2a2 2 0 0 0-2-2H9Zm3 6a5 5 0 1 1 0 10a5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 17.8a2.8 2.8 0 0 0 0-5.6Z" />
+      <path d="M3 3h2v18H3V3Zm16 6h2v12h-2V9ZM7 13h2v8H7v-8Zm4-6h2v14h-2V7Zm4 3h2v11h-2V10Z" />
     </svg>
   ),
 
@@ -41,58 +31,32 @@ const CategoryIcons: Record<string, JSX.Element> = {
       fill="currentColor"
       className="w-6 h-6 text-[var(--sec)] opacity-70"
     >
-      <path d="M12 2C7.03 2 3 3.79 3 6v12c0 2.21 4.03 4 9 4s9-1.79 9-4V6c0-2.21-4.03-4-9-4Zm0 2c4.42 0 7 .99 7 2s-2.58 2-7 2-7-.99-7-2 2.58-2 7-2Zm0 16c-4.42 0-7-.99-7-2v-2.18C6.48 17.03 9.11 18 12 18s5.52-.97 7-2.18V18c0 1.01-2.58 2-7 2Zm0-6c-4.42 0-7-.99-7-2V9.82C6.48 11.03 9.11 12 12 12s5.52-.97 7-2.18V12c0 1.01-2.58 2-7 2Z" />
-    </svg>
-  ),
-
-  "Delivery (Production-minded)": (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="w-6 h-6 text-[var(--sec)] opacity-70"
-    >
-      <path d="M12 2l4 8h6l-5 4 2 8-7-5-7 5 2-8-5-4h6l4-8z" />
+      <path d="M12 2c4.97 0 9 1.79 9 4v12c0 2.21-4.03 4-9 4s-9-1.79-9-4V6c0-2.21 4.03-4 9-4Zm0 2c-4.08 0-7 .99-7 2s2.92 2 7 2s7-.99 7-2s-2.92-2-7-2Zm7 5.12C17.33 10.27 14.88 11 12 11s-5.33-.73-7-1.88V12c0 1.01 2.92 2 7 2s7-.99 7-2V9.12Zm0 6C17.33 16.27 14.88 17 12 17s-5.33-.73-7-1.88V18c0 1.01 2.92 2 7 2s7-.99 7-2v-2.88Z" />
     </svg>
   ),
 };
 
 const SkillsList = () => {
-  const [openItem, setOpenItem] = useState<string | null>("ML Modeling (Tabular)");
+  const [openItem, setOpenItem] = useState<string | null>(null);
 
   const skills: Record<string, string[]> = {
-    "ML Modeling (Tabular)": [
-      "Data cleaning + EDA (outliers, nulls, leakage checks)",
-      "Feature engineering + preprocessing pipelines (scikit-learn)",
-      "Model selection & tuning (CV, GridSearch, thresholding when needed)",
-      "Tree-based models: Random Forest, Gradient Boosting (LightGBM/CatBoost)",
-      "Metrics-driven evaluation (RMSE / MAE / sMAPE / F1 / AUC-ROC)",
+    "Machine Learning": [
+      "End-to-end ML pipelines (prep → train → evaluate)",
+      "Feature engineering + preprocessing (sklearn)",
+      "Model evaluation with business-focused metrics",
+      "Computer Vision basics (transfer learning: ResNet50)",
+      "NLP basics (vectorization + classical models)",
     ],
-
-    "NLP (Text & Transformers)": [
-      "TF-IDF baselines (LogReg / LinearSVC) with solid validation",
-      "Fine-tuning Transformers (BERT) using PyTorch + Hugging Face",
-      "Error analysis: confusion matrix, precision/recall trade-offs",
-      "Stress tests with tricky inputs (negation, mixed sentiment, sarcasm)",
+    "Analytics & EDA": [
+      "Exploratory Data Analysis (EDA) + data quality checks",
+      "Hypothesis-driven analysis & clear takeaways",
+      "Visualization for decision-making (clean, minimal)",
+      "Communicating results as business-ready insights",
     ],
-
-    "Computer Vision (CV)": [
-      "Transfer learning with ResNet50 (TensorFlow/Keras)",
-      "Image preprocessing + augmentation strategies",
-      "Reproducible training pipeline + clear evaluation (e.g., MAE)",
-      "Focus on practical delivery: stable training and readable results",
-    ],
-
     "Data & SQL": [
-      "PostgreSQL querying (joins, aggregations, filtering, window basics)",
-      "Data shaping for modeling (clean splits, consistent schemas)",
-      "Project structure & reproducibility (requirements, environment hygiene)",
-    ],
-
-    "Delivery (Production-minded)": [
-      "Latency vs quality trade-offs (inference speed matters)",
-      "Saving models & artifacts (joblib / checkpoints) + clean handoff",
-      "Readable reporting: what worked, why it worked, what to improve next",
+      "SQL in PostgreSQL (joins, aggregations, windows basics)",
+      "Data wrangling with Pandas/NumPy",
+      "Reproducible projects + Git/GitHub workflow",
     ],
   };
 
@@ -114,12 +78,9 @@ const SkillsList = () => {
               className="md:w-[400px] w-full bg-[#1414149c] rounded-2xl text-left hover:bg-opacity-80 transition-all border border-[var(--white-icon-tr)] cursor-pointer overflow-hidden"
             >
               <div className="flex items-center gap-3 p-4">
-                {CategoryIcons[category] ?? (
-                  <span className="w-6 h-6 inline-block rounded-full bg-[var(--sec)] opacity-40" />
-                )}
-
+                {CategoryIcons[category]}
                 <div className="flex items-center gap-2 flex-grow justify-between">
-                  <div className="min-w-0 max-w-[240px] md:max-w-none overflow-hidden">
+                  <div className="min-w-0 max-w-[260px] md:max-w-none overflow-hidden">
                     <span className="block truncate text-[var(--white)] text-lg">
                       {category}
                     </span>
@@ -141,7 +102,7 @@ const SkillsList = () => {
               <div
                 className={`transition-all duration-300 px-4 ${
                   openItem === category
-                    ? "max-h-[520px] pb-4 opacity-100"
+                    ? "max-h-[500px] pb-4 opacity-100"
                     : "max-h-0 opacity-0"
                 }`}
               >
