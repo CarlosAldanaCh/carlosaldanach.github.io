@@ -2,8 +2,8 @@
 /**
  * LogoWall.astro (Simple Icons CDN)
  * - Uses https://cdn.simpleicons.org/<slug>/<color>
- * - Keeps a clean fallback if any icon fails
- * - Still scrolls infinitely + pauses on hover
+ * - Fallback if an icon fails
+ * - Infinite scroll + pause on hover
  */
 
 type Tech = {
@@ -11,24 +11,27 @@ type Tech = {
   slug: string; // SimpleIcons slug
 };
 
-const ACCENT = "A476FF"; // purple neon
+const ACCENT = "A476FF";
 
 const technologies: Tech[] = [
-  // Core DS / ML
+  // Data Science / ML core
   { label: "Python", slug: "python" },
   { label: "Pandas", slug: "pandas" },
   { label: "NumPy", slug: "numpy" },
   { label: "scikit-learn", slug: "scikitlearn" },
   { label: "Jupyter", slug: "jupyter" },
-  { label: "PyTorch", slug: "pytorch" },
-  { label: "TensorFlow", slug: "tensorflow" },
 
-  // Data / DB / Dev
+  // Modeling 
+  { label: "TensorFlow", slug: "tensorflow" },
+  { label: "PyTorch", slug: "pytorch" },
+  { label: "Hugging Face", slug: "huggingface" },
+  { label: "LightGBM", slug: "lightgbm" },
+  { label: "CatBoost", slug: "catboost" },
+
+  // Data / Dev
   { label: "PostgreSQL", slug: "postgresql" },
   { label: "Git", slug: "git" },
   { label: "GitHub", slug: "github" },
-  { label: "Docker", slug: "docker" },
-
 ];
 
 const items = [...technologies, ...technologies, ...technologies];
@@ -37,7 +40,6 @@ const iconUrl = (slug: string) => `https://cdn.simpleicons.org/${slug}/${ACCENT}
 ---
 
 <div class="relative overflow-x-hidden py-8">
-  <!-- Fade edges -->
   <div
     class="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[var(--background)] to-transparent z-20"
   ></div>
@@ -56,16 +58,9 @@ const iconUrl = (slug: string) => `https://cdn.simpleicons.org/${slug}/${ACCENT}
             width="28"
             height="28"
             loading="lazy"
-            onError={(e) => {
-              // Fallback: hide broken icon and show a small dot
-              const img = e.currentTarget as HTMLImageElement;
-              img.style.display = "none";
-              const fallback = img.nextElementSibling as HTMLElement | null;
-              if (fallback) fallback.style.display = "inline-flex";
-            }}
+            onerror="this.style.display='none'; this.nextElementSibling && (this.nextElementSibling.style.display='inline-flex');"
           />
 
-          {/* Fallback dot (hidden unless image fails) */}
           <span
             class="hidden size-2 rounded-full bg-[var(--sec)] shadow-[0_0_12px_rgba(164,118,255,.35)]"
             aria-hidden="true"
@@ -90,7 +85,6 @@ const iconUrl = (slug: string) => `https://cdn.simpleicons.org/${slug}/${ACCENT}
     animation: scroll 60s linear infinite;
   }
 
-  /* Pause animation on hover */
   .hover\:animate-paused:hover {
     animation-play-state: paused;
   }
