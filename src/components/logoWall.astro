@@ -1,46 +1,78 @@
 ---
-const technologies = [
-  "astro",
-  "vue",
-  "react",
-  "typeScript",
-  "tailwindcss",
-  "next",
-  "nodejs",
-  "HTML5",
-  "CSS3",
-  "javaScript",
-  "git",
-  "supabase",
-  "mysql",
-  "bash",
+/**
+ * LogoWall.astro (Simple Icons CDN)
+ * - Uses https://cdn.simpleicons.org/<slug>/<color>
+ * - Keeps a clean fallback if any icon fails
+ * - Still scrolls infinitely + pauses on hover
+ */
+
+type Tech = {
+  label: string;
+  slug: string; // SimpleIcons slug
+};
+
+const ACCENT = "A476FF"; // purple neon
+
+const technologies: Tech[] = [
+  // Core DS / ML
+  { label: "Python", slug: "python" },
+  { label: "Pandas", slug: "pandas" },
+  { label: "NumPy", slug: "numpy" },
+  { label: "scikit-learn", slug: "scikitlearn" },
+  { label: "Jupyter", slug: "jupyter" },
+  { label: "PyTorch", slug: "pytorch" },
+  { label: "TensorFlow", slug: "tensorflow" },
+
+  // Data / DB / Dev
+  { label: "PostgreSQL", slug: "postgresql" },
+  { label: "Git", slug: "git" },
+  { label: "GitHub", slug: "github" },
+  { label: "Docker", slug: "docker" },
+
 ];
+
+const items = [...technologies, ...technologies, ...technologies];
+
+const iconUrl = (slug: string) => `https://cdn.simpleicons.org/${slug}/${ACCENT}`;
 ---
 
 <div class="relative overflow-x-hidden py-8">
+  <!-- Fade edges -->
   <div
     class="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[var(--background)] to-transparent z-20"
-  >
-  </div>
+  ></div>
   <div
     class="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[var(--background)] to-transparent z-20"
-  >
-  </div>
+  ></div>
 
   <div class="flex animate-scroll hover:animate-paused gap-12 md:gap-20 w-max">
     {
-      [...technologies, ...technologies, ...technologies].map((tech) => (
-        <div class="flex items-center gap-2 group transition-all duration-300">
+      items.map((tech) => (
+        <div class="flex items-center gap-3 group transition-all duration-300">
           <img
-            src={`/svg/${tech}.svg`}
-            alt={tech}
-            class="h-7 w-auto object-contain transition-transform group-hover:scale-110 opacity-60"
-            width="30"
-            height="30"
+            src={iconUrl(tech.slug)}
+            alt={tech.label}
+            class="h-7 w-7 object-contain transition-transform group-hover:scale-110 opacity-70"
+            width="28"
+            height="28"
             loading="lazy"
+            onError={(e) => {
+              // Fallback: hide broken icon and show a small dot
+              const img = e.currentTarget as HTMLImageElement;
+              img.style.display = "none";
+              const fallback = img.nextElementSibling as HTMLElement | null;
+              if (fallback) fallback.style.display = "inline-flex";
+            }}
           />
+
+          {/* Fallback dot (hidden unless image fails) */}
+          <span
+            class="hidden size-2 rounded-full bg-[var(--sec)] shadow-[0_0_12px_rgba(164,118,255,.35)]"
+            aria-hidden="true"
+          ></span>
+
           <span class="text-lg font-medium text-[var(--white-icon)]">
-            {tech.charAt(0).toUpperCase() + tech.slice(1)}
+            {tech.label}
           </span>
         </div>
       ))
@@ -50,20 +82,20 @@ const technologies = [
 
 <style is:global>
   @keyframes scroll {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
+
   .animate-scroll {
     animation: scroll 60s linear infinite;
   }
 
+  /* Pause animation on hover */
+  .hover\:animate-paused:hover {
+    animation-play-state: paused;
+  }
+
   @media (min-width: 768px) {
-    .animate-scroll {
-      animation-duration: 50s;
-    }
+    .animate-scroll { animation-duration: 50s; }
   }
 </style>
