@@ -191,16 +191,11 @@ const techStack = [
     </div>
 
     <div class="mt-12 pt-8 border-t border-[#ffffff10]">
-      <p class="text-center text-sm text-[var(--white-icon)] space-y-2">
-        <span class="block sm:inline">
-          Content © {currentYear} <a href={profile.github} target="_blank" rel="noreferrer noopener" class="hover:text-[var(--white)] transition duration-300 ease-in-out">{profile.name}</a>.
-        </span>
-        <!-- Template attribution retained per MIT license terms -->
-        <span class="block sm:inline">
-          Template © 2025 <a href="https://github.com/Gothsec" target="_blank" rel="noreferrer noopener" class="hover:text-[var(--white)] transition duration-300 ease-in-out">Oscar Hernandez</a> (MIT).
-          <span class="mx-1">•</span>
-          <a href="https://github.com/Gothsec/Astro-portfolio" target="_blank" rel="noreferrer noopener" class="hover:text-[var(--white)] transition duration-300 ease-in-out">Source</a>
-        </span>
+      <!-- MIT license: template by Oscar Hernandez https://github.com/Gothsec/Astro-portfolio -->
+      <p class="text-center text-sm text-[var(--white-icon)]">
+        © {currentYear} <a href={profile.github} target="_blank" rel="noreferrer noopener" class="hover:text-[var(--white)] transition duration-300 ease-in-out">{profile.name}</a>
+        <span class="mx-2 opacity-30">·</span>
+        Built with <a href="https://astro.build" target="_blank" rel="noreferrer noopener" class="hover:text-[var(--white)] transition duration-300 ease-in-out">Astro</a>
       </p>
     </div>
   </div>
