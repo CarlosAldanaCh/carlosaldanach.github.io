@@ -1,6 +1,6 @@
 # Carlos Aldana — Portfolio
 
-Personal portfolio site for Carlos Aldana Chico — Junior Data Scientist specializing in ML & Analytics.
+Personal portfolio site for Carlos Aldana Chico — Data Scientist specializing in ML & Analytics.
 
 Live at: **https://carlosaldanach.github.io**
 
