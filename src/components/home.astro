@@ -9,7 +9,7 @@ import SkillsList from "../React/SkillsList.tsx";
     <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] gap-10 lg:gap-12 items-center">
       <div class="text-left space-y-5">
         <p class="text-xl md:text-2xl text-[var(--white)] font-medium tracking-[0.01em]">
-          Hi, I'm <span class="shiny-sec">Carlos Aldana Chico</span>
+          Hi, I'm <span class="hero-name-accent">Carlos Aldana Chico</span>
         </p>
 
         <div class="space-y-4">
@@ -48,7 +48,7 @@ import SkillsList from "../React/SkillsList.tsx";
             class="px-5 py-3 rounded-xl border border-[#ffffff14] bg-[#14141466] backdrop-blur-sm hover:bg-[#1414149c] transition
             shadow-[0_0_0_1px_rgba(164,118,255,0.18),0_0_24px_rgba(164,118,255,0.14)]"
           >
-            <span class="shiny-sec font-semibold">View Projects</span>
+            <span class="hero-cta-accent font-semibold">View Projects</span>
           </a>
 
           <a
@@ -152,6 +152,29 @@ import SkillsList from "../React/SkillsList.tsx";
     text-shadow:
       0 0 14px rgba(164, 118, 255, 0.22),
       0 0 2px rgba(242, 236, 255, 0.18);
+  }
+
+  .hero-name-accent {
+    color: #d8beff;
+    text-shadow:
+      0 0 18px rgba(164, 118, 255, 0.32),
+      0 0 32px rgba(164, 118, 255, 0.18),
+      0 0 2px rgba(248, 240, 255, 0.3);
+  }
+
+  @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .hero-name-accent {
+      background: linear-gradient(135deg, #b983ff 12%, #f7f0ff 55%, #a476ff 92%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+  }
+
+  .hero-cta-accent {
+    color: #b98dff;
+    text-shadow: 0 0 14px rgba(164, 118, 255, 0.2);
   }
 
   /* Mantén el "shine" pero úsalo solo en una parte corta (insights) */
