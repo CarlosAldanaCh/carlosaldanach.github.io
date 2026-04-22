@@ -5,110 +5,126 @@ import SkillsList from "../React/SkillsList.tsx";
 ---
 
 <section class="text-[var(--white)] mt-12 md:mt-0" id="home">
-  <div class="max-w-5xl mx-auto space-y-8 md:py-36 pb-14">
-    <div class="text-left space-y-4">
-      <p class="text-md md:text-lg text-[var(--white-icon)] shiny-white">
-        Hi, I'm Carlos Aldana Chico
-      </p>
+  <div class="max-w-5xl mx-auto space-y-10 md:py-28 pb-14">
+    <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] gap-10 lg:gap-12 items-center">
+      <div class="text-left space-y-5">
+        <p class="text-xl md:text-2xl text-[var(--white)] font-medium tracking-[0.01em]">
+          Hi, I'm <span class="shiny-sec">Carlos Aldana Chico</span>
+        </p>
 
-      <!-- HERO: grid para controlar mejor proporciones -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
-        <h1 class="lg:col-span-7 text-[var(--white)] text-5xl md:text-6xl font-medium text-pretty leading-[0.95]">
-          Data Scientist <br />
-          ML & Analytics (FinTech, E-commerce) | Remote
-        </h1>
+        <div class="space-y-4">
+          <h1 class="text-[var(--white)] text-5xl md:text-6xl font-medium text-pretty leading-[0.95]">
+            Data Scientist <br />
+            ML & Analytics | Remote
+          </h1>
 
-        <!-- Callout: siempre legible -->
-        <div class="lg:col-span-5">
-          <p class="text-md md:text-xl text-[var(--white-icon)] leading-snug">
-            I build end-to-end ML projects.
+          <div class="max-w-xl space-y-3">
+            <p class="text-lg md:text-xl text-[var(--white-icon)] leading-snug">
+              I build end-to-end ML projects.
+            </p>
+
+            <p class="text-sm md:text-base leading-relaxed text-[var(--white-icon)]">
+              <span class="shiny-sec font-semibold">
+                data cleaning → EDA → feature engineering → modeling → evaluation → business-ready insights.
+              </span>
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-2 pt-2">
+          <p class="text-[var(--white-icon)] text-sm md:text-base max-w-3xl">
+            Bootcamp-trained Data Scientist (TripleTen) with hands-on projects in tabular regression and
+            Computer Vision (ResNet50 transfer learning). Strong Python stack (pandas, NumPy, scikit-learn)
+            and growing SQL (PostgreSQL).
           </p>
-
-          <p class="text-sm md:text-base leading-relaxed text-[var(--white-icon)]">
-            <span class="shiny-sec font-semibold">
-              data cleaning → EDA → feature engineering → modeling → evaluation → business-ready insights.
-            </span>
+          <p class="text-[var(--white-icon)] text-sm md:text-base max-w-3xl">
+            <span class="text-[var(--sec)]">ES:</span> Busco oportunidades 100% remotas como Junior Data Scientist / ML Analyst / Data Analyst (Modeling).
           </p>
+        </div>
+
+        <div class="flex flex-wrap gap-3 pt-3 md:pt-5">
+          <a
+            href="#projects"
+            class="px-5 py-3 rounded-xl border border-[#ffffff14] bg-[#14141466] backdrop-blur-sm hover:bg-[#1414149c] transition
+            shadow-[0_0_0_1px_rgba(164,118,255,0.18),0_0_24px_rgba(164,118,255,0.14)]"
+          >
+            <span class="shiny-sec font-semibold">View Projects</span>
+          </a>
+
+          <a
+            href="/Carlos_Aldana_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-5 py-3 rounded-xl border border-[var(--white-icon-tr)] text-[var(--white)] hover:bg-[var(--white-icon-tr)] transition"
+          >
+            Download Resume
+          </a>
+
+          <a
+            href="#contact"
+            class="px-5 py-3 rounded-xl border border-[var(--white-icon-tr)] text-[var(--white)] hover:bg-[var(--white-icon-tr)] transition"
+          >
+            Contact
+          </a>
+        </div>
+
+        <div class="flex justify-start gap-2 pt-2">
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/CarlosAldanaCh"
+            aria-label="GitHub"
+            class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8">
+              <path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"></path>
+            </svg>
+          </a>
+
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.linkedin.com/in/carlosaldanach/"
+            aria-label="LinkedIn"
+            class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8">
+              <path d="M18.3362 18.339H15.6707V14.1622C15.6707 13.1662 15.6505 11.8845 14.2817 11.8845C12.892 11.8845 12.6797 12.9683 12.6797 14.0887V18.339H10.0142V9.75H12.5747V10.9207H12.6092C12.967 10.2457 13.837 9.53325 15.1367 9.53325C17.8375 9.53325 18.337 11.3108 18.337 13.6245V18.339H18.3362ZM7.00373 8.57475C6.14573 8.57475 5.45648 7.88025 5.45648 7.026C5.45648 6.1725 6.14648 5.47875 7.00373 5.47875C7.85873 5.47875 8.55173 6.1725 8.55173 7.026C8.55173 7.88025 7.85798 8.57475 7.00373 8.57475ZM8.34023 18.339H5.66723V9.75H8.34023V18.339ZM19.6697 3H4.32923C3.59498 3 3.00098 3.5805 3.00098 4.29675V19.7033C3.00098 20.4202 3.59498 21 4.32923 21H19.6675C20.401 21 21.001 20.4202 21.001 19.7033V4.29675C21.001 3.5805 20.401 3 19.6675 3H19.6697Z"></path>
+            </svg>
+          </a>
+
+          <a
+            href="mailto:carlosaldanaoficial@gmail.com?subject=Opportunity%20-%20Data%20Science%20Role"
+            aria-label="Email"
+            class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="2.1em" height="2.1em" viewBox="0 0 24 24">
+              <path fill="currentColor" d="m18.73 5.41l-1.28 1L12 10.46L6.55 6.37l-1.28-1A2 2 0 0 0 2 7.05v11.59A1.36 1.36 0 0 0 3.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0 0 22 18.64V7.05a2 2 0 0 0-3.27-1.64"></path>
+            </svg>
+          </a>
         </div>
       </div>
 
-      <!-- Short bio -->
-      <div class="space-y-2 pt-2">
-        <p class="text-[var(--white-icon)] text-sm md:text-base max-w-3xl">
-          Bootcamp-trained Data Scientist (TripleTen) with hands-on projects in tabular regression and
-          Computer Vision (ResNet50 transfer learning). Strong Python stack (pandas, NumPy, scikit-learn)
-          and growing SQL (PostgreSQL).
-        </p>
-        <p class="text-[var(--white-icon)] text-sm md:text-base max-w-3xl">
-          <span class="text-[var(--sec)]">ES:</span> Busco oportunidades 100% remotas como Junior Data Scientist / ML Analyst / Data Analyst (Modeling).
-        </p>
-      </div>
+      <div class="relative flex justify-center lg:justify-end">
+        <div class="portrait-stage relative isolate w-full max-w-[24rem] sm:max-w-[26rem] lg:max-w-[28rem] h-[25rem] sm:h-[30rem] lg:h-[34rem] overflow-hidden rounded-[2rem] border border-[#ffffff12] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] shadow-[0_0_0_1px_rgba(164,118,255,0.12),0_25px_80px_rgba(0,0,0,0.36)]">
+          <div class="absolute inset-x-10 top-6 h-28 rounded-full bg-[radial-gradient(circle,rgba(164,118,255,0.24),transparent_70%)] blur-2xl"></div>
+          <div class="absolute inset-x-6 bottom-0 h-[74%] rounded-t-[2rem] bg-[linear-gradient(180deg,rgba(164,118,255,0.14),rgba(36,26,56,0.03)_32%,rgba(16,16,16,0.72)_100%)]"></div>
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.04),transparent_38%)]"></div>
+          <div class="absolute inset-x-6 inset-y-6 rounded-[1.65rem] border border-[rgba(164,118,255,0.16)]"></div>
+          <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[var(--background)] via-[rgba(16,16,16,0.82)] to-transparent z-20"></div>
 
-      <!-- CTAs -->
-      <div class="flex flex-wrap gap-3 pt-3 md:pt-6">
-        <a
-          href="#projects"
-          class="px-5 py-3 rounded-xl border border-[#ffffff14] bg-[#14141466] backdrop-blur-sm hover:bg-[#1414149c] transition
-          shadow-[0_0_0_1px_rgba(164,118,255,0.18),0_0_24px_rgba(164,118,255,0.14)]"
-          >
-        <span class="shiny-sec font-semibold">View Projects</span>
-        </a>
+          <img
+            src="/images/carlos-aldana-portrait.png"
+            alt="Portrait of Carlos Aldana Chico"
+            class="portrait-image absolute left-1/2 top-5 z-10 h-[142%] sm:h-[145%] lg:h-[148%] w-auto max-w-none -translate-x-1/2 object-contain"
+            loading="eager"
+            decoding="async"
+          />
 
-        <a
-          href="/Carlos_Aldana_Resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="px-5 py-3 rounded-xl border border-[var(--white-icon-tr)] text-[var(--white)] hover:bg-[var(--white-icon-tr)] transition"
-        >
-          Download Resume
-        </a>
-
-        <a
-          href="#contact"
-          class="px-5 py-3 rounded-xl border border-[var(--white-icon-tr)] text-[var(--white)] hover:bg-[var(--white-icon-tr)] transition"
-        >
-          Contact
-        </a>
-      </div>
-
-      <!-- Social icons -->
-      <div class="flex justify-start gap-2 pt-2">
-        <!-- GitHub -->
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/CarlosAldanaCh"
-          aria-label="GitHub"
-          class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8">
-            <path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"></path>
-          </svg>
-        </a>
-
-        <!-- LinkedIn -->
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.linkedin.com/in/carlosaldanach/"
-          aria-label="LinkedIn"
-          class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8">
-            <path d="M18.3362 18.339H15.6707V14.1622C15.6707 13.1662 15.6505 11.8845 14.2817 11.8845C12.892 11.8845 12.6797 12.9683 12.6797 14.0887V18.339H10.0142V9.75H12.5747V10.9207H12.6092C12.967 10.2457 13.837 9.53325 15.1367 9.53325C17.8375 9.53325 18.337 11.3108 18.337 13.6245V18.339H18.3362ZM7.00373 8.57475C6.14573 8.57475 5.45648 7.88025 5.45648 7.026C5.45648 6.1725 6.14648 5.47875 7.00373 5.47875C7.85873 5.47875 8.55173 6.1725 8.55173 7.026C8.55173 7.88025 7.85798 8.57475 7.00373 8.57475ZM8.34023 18.339H5.66723V9.75H8.34023V18.339ZM19.6697 3H4.32923C3.59498 3 3.00098 3.5805 3.00098 4.29675V19.7033C3.00098 20.4202 3.59498 21 4.32923 21H19.6675C20.401 21 21.001 20.4202 21.001 19.7033V4.29675C21.001 3.5805 20.401 3 19.6675 3H19.6697Z"></path>
-          </svg>
-        </a>
-
-        <!-- Email -->
-        <a
-          href="mailto:carlosaldanaoficial@gmail.com?subject=Opportunity%20-%20Data%20Science%20Role"
-          aria-label="Email"
-          class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="2.1em" height="2.1em" viewBox="0 0 24 24">
-            <path fill="currentColor" d="m18.73 5.41l-1.28 1L12 10.46L6.55 6.37l-1.28-1A2 2 0 0 0 2 7.05v11.59A1.36 1.36 0 0 0 3.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0 0 22 18.64V7.05a2 2 0 0 0-3.27-1.64"></path>
-          </svg>
-        </a>
+          <div class="absolute left-5 top-5 z-30 rounded-full border border-[rgba(164,118,255,0.24)] bg-[rgba(16,16,16,0.68)] px-3 py-1 text-xs uppercase tracking-[0.24em] text-[var(--white-icon)] backdrop-blur-md">
+            Carlos Aldana
+          </div>
+        </div>
       </div>
     </div>
 
@@ -169,5 +185,22 @@ import SkillsList from "../React/SkillsList.tsx";
 
   @media (prefers-reduced-motion: reduce) {
     .shiny-sec { animation: none; }
+  }
+
+  .portrait-stage::after {
+    content: "";
+    position: absolute;
+    inset: auto 14% 5% 14%;
+    height: 18%;
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(164, 118, 255, 0.26), transparent 72%);
+    filter: blur(30px);
+    z-index: 1;
+  }
+
+  .portrait-image {
+    filter:
+      drop-shadow(0 0 20px rgba(164, 118, 255, 0.18))
+      drop-shadow(0 12px 40px rgba(0, 0, 0, 0.42));
   }
 </style>
