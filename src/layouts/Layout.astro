@@ -8,7 +8,6 @@ interface Props {
 const { title } = Astro.props;
 
 const siteName = "Carlos Aldana Chico";
-const siteTagline = "Junior Data Scientist • ML & Analytics • Remote";
 
 const siteUrl = "https://carlosaldanach.github.io";
 
@@ -28,7 +27,7 @@ const description =
 
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
 
     <!-- Canonical -->
     <link rel="canonical" href={siteUrl} />
@@ -58,6 +57,10 @@ const description =
 <style is:global>
   :root {
     --background: #101010;
+    --component-bg: #141414cc;
+    --container: #181818;
+    --line: #2a2a2a;
+    --pink: #a476ff;
     --sec: #a476ff;
     --white: #dfdfdf;
     --white-icon: #f3f3f398;
