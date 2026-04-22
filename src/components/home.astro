@@ -106,22 +106,22 @@ import SkillsList from "../React/SkillsList.tsx";
       </div>
 
       <div class="relative flex justify-center lg:justify-end">
-        <div class="portrait-stage relative isolate w-full max-w-[24rem] sm:max-w-[26rem] lg:max-w-[28rem] h-[25rem] sm:h-[30rem] lg:h-[34rem] overflow-hidden rounded-[2rem] border border-[#ffffff12] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] shadow-[0_0_0_1px_rgba(164,118,255,0.12),0_25px_80px_rgba(0,0,0,0.36)]">
-          <div class="absolute inset-x-10 top-6 h-28 rounded-full bg-[radial-gradient(circle,rgba(164,118,255,0.24),transparent_70%)] blur-2xl"></div>
-          <div class="absolute inset-x-6 bottom-0 h-[74%] rounded-t-[2rem] bg-[linear-gradient(180deg,rgba(164,118,255,0.14),rgba(36,26,56,0.03)_32%,rgba(16,16,16,0.72)_100%)]"></div>
+        <div class="portrait-stage group relative isolate w-full max-w-[24rem] sm:max-w-[26rem] lg:max-w-[28rem] h-[25rem] sm:h-[30rem] lg:h-[34rem] overflow-hidden rounded-[2rem] border border-[#ffffff12] bg-[linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01))] shadow-[0_0_0_1px_rgba(164,118,255,0.18),0_25px_80px_rgba(0,0,0,0.36)] transition-[transform,box-shadow,border-color] duration-500 ease-out hover:-translate-y-1 hover:border-[rgba(164,118,255,0.45)] hover:shadow-[0_0_0_1px_rgba(164,118,255,0.28),0_0_38px_rgba(164,118,255,0.18),0_25px_80px_rgba(0,0,0,0.42)]">
+          <div class="absolute inset-x-10 top-6 h-28 rounded-full bg-[radial-gradient(circle,rgba(164,118,255,0.38),transparent_70%)] blur-2xl transition-all duration-500 group-hover:scale-110 group-hover:opacity-100"></div>
+          <div class="absolute inset-x-6 bottom-0 h-[74%] rounded-t-[2rem] bg-[linear-gradient(180deg,rgba(164,118,255,0.22),rgba(36,26,56,0.06)_32%,rgba(16,16,16,0.72)_100%)] transition-all duration-500 group-hover:from-[rgba(164,118,255,0.3)]"></div>
           <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.04),transparent_38%)]"></div>
-          <div class="absolute inset-x-6 inset-y-6 rounded-[1.65rem] border border-[rgba(164,118,255,0.16)]"></div>
+          <div class="absolute inset-x-6 inset-y-6 rounded-[1.65rem] border border-[rgba(164,118,255,0.24)] transition-colors duration-500 group-hover:border-[rgba(190,150,255,0.42)]"></div>
           <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[var(--background)] via-[rgba(16,16,16,0.82)] to-transparent z-20"></div>
 
           <img
             src="/images/carlos-aldana-portrait.png"
             alt="Portrait of Carlos Aldana Chico"
-            class="portrait-image absolute left-1/2 top-5 z-10 h-[142%] sm:h-[145%] lg:h-[148%] w-auto max-w-none -translate-x-1/2 object-contain"
+            class="portrait-image absolute left-1/2 top-5 z-10 h-[142%] sm:h-[145%] lg:h-[148%] w-auto max-w-none -translate-x-1/2 object-contain transition-[transform,filter] duration-500 ease-out group-hover:scale-[1.025]"
             loading="eager"
             decoding="async"
           />
 
-          <div class="absolute left-5 top-5 z-30 rounded-full border border-[rgba(164,118,255,0.24)] bg-[rgba(16,16,16,0.68)] px-3 py-1 text-xs uppercase tracking-[0.24em] text-[var(--white-icon)] backdrop-blur-md">
+          <div class="portrait-chip absolute left-5 top-5 z-30 rounded-full border border-[rgba(164,118,255,0.32)] bg-[rgba(16,16,16,0.72)] px-3 py-1 text-xs uppercase tracking-[0.24em] text-[var(--white)] backdrop-blur-md transition-[border-color,box-shadow,transform] duration-500 ease-out group-hover:-translate-y-0.5 group-hover:border-[rgba(201,170,255,0.52)] group-hover:shadow-[0_0_18px_rgba(164,118,255,0.24)]">
             Carlos Aldana
           </div>
         </div>
@@ -156,24 +156,25 @@ import SkillsList from "../React/SkillsList.tsx";
 
   /* Mantén el "shine" pero úsalo solo en una parte corta (insights) */
   .shiny-sec {
-    color: #a476ff;
+    color: #c29bff;
   }
 
   @supports ((-webkit-background-clip: text) or (background-clip: text)) {
     .shiny-sec {
-      background: linear-gradient(135deg, #a476ff 18%, #f2ecff 50%, #a476ff 82%);
-      background-size: 260% 100%;
+      background: linear-gradient(135deg, #7d3cff 8%, #c693ff 34%, #f8f0ff 52%, #a65cff 74%, #7d3cff 100%);
+      background-size: 280% 100%;
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       color: transparent;
 
       text-shadow:
-        0 0 14px rgba(164, 118, 255, 0.22),
-        0 0 2px rgba(242, 236, 255, 0.18);
+        0 0 18px rgba(164, 118, 255, 0.34),
+        0 0 30px rgba(125, 60, 255, 0.2),
+        0 0 3px rgba(248, 240, 255, 0.26);
 
-      filter: saturate(1.25) brightness(1.12);
-      animation: shine 2.6s linear infinite;
+      filter: saturate(1.38) brightness(1.2);
+      animation: shine 2.35s linear infinite;
     }
   }
 
@@ -193,14 +194,84 @@ import SkillsList from "../React/SkillsList.tsx";
     inset: auto 14% 5% 14%;
     height: 18%;
     border-radius: 9999px;
-    background: radial-gradient(circle, rgba(164, 118, 255, 0.26), transparent 72%);
-    filter: blur(30px);
+    background: radial-gradient(circle, rgba(164, 118, 255, 0.42), transparent 72%);
+    filter: blur(34px);
     z-index: 1;
+    transition:
+      transform 500ms ease-out,
+      opacity 500ms ease-out,
+      filter 500ms ease-out;
+  }
+
+  .portrait-stage:hover::after {
+    transform: scale(1.08);
+    opacity: 1;
+    filter: blur(40px);
+  }
+
+  .portrait-stage::before {
+    content: "";
+    position: absolute;
+    inset: -28% -10%;
+    background: conic-gradient(
+      from 180deg,
+      rgba(125, 60, 255, 0) 0deg,
+      rgba(125, 60, 255, 0.18) 58deg,
+      rgba(248, 240, 255, 0.16) 104deg,
+      rgba(166, 92, 255, 0.22) 182deg,
+      rgba(125, 60, 255, 0) 250deg,
+      rgba(125, 60, 255, 0) 360deg
+    );
+    opacity: 0.6;
+    filter: blur(28px);
+    transform: translate3d(0, 0, 0);
+    animation: portraitFlow 7s linear infinite;
+    pointer-events: none;
+    z-index: 0;
   }
 
   .portrait-image {
     filter:
-      drop-shadow(0 0 20px rgba(164, 118, 255, 0.18))
+      drop-shadow(0 0 24px rgba(164, 118, 255, 0.28))
+      drop-shadow(0 0 48px rgba(125, 60, 255, 0.12))
       drop-shadow(0 12px 40px rgba(0, 0, 0, 0.42));
+  }
+
+  .group:hover .portrait-image {
+    filter:
+      drop-shadow(0 0 28px rgba(164, 118, 255, 0.34))
+      drop-shadow(0 0 60px rgba(125, 60, 255, 0.18))
+      drop-shadow(0 18px 52px rgba(0, 0, 0, 0.46));
+  }
+
+  .portrait-chip {
+    background-image: linear-gradient(135deg, rgba(125, 60, 255, 0.1), rgba(248, 240, 255, 0.03), rgba(166, 92, 255, 0.12));
+  }
+
+  @keyframes portraitFlow {
+    0% {
+      transform: rotate(0deg) scale(1);
+      opacity: 0.38;
+    }
+    50% {
+      transform: rotate(180deg) scale(1.06);
+      opacity: 0.7;
+    }
+    100% {
+      transform: rotate(360deg) scale(1);
+      opacity: 0.38;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .portrait-stage::before,
+    .portrait-stage::after,
+    .portrait-image,
+    .portrait-chip,
+    .portrait-stage {
+      animation: none;
+      transition: none;
+      transform: none;
+    }
   }
 </style>
