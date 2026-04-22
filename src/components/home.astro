@@ -156,25 +156,24 @@ import SkillsList from "../React/SkillsList.tsx";
 
   /* Mantén el "shine" pero úsalo solo en una parte corta (insights) */
   .shiny-sec {
-    color: #c29bff;
+    color: #a476ff;
   }
 
   @supports ((-webkit-background-clip: text) or (background-clip: text)) {
     .shiny-sec {
-      background: linear-gradient(135deg, #7d3cff 8%, #c693ff 34%, #f8f0ff 52%, #a65cff 74%, #7d3cff 100%);
-      background-size: 280% 100%;
+      background: linear-gradient(135deg, #a476ff 14%, #f4eeff 50%, #a476ff 86%);
+      background-size: 240% 100%;
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       color: transparent;
 
       text-shadow:
-        0 0 18px rgba(164, 118, 255, 0.34),
-        0 0 30px rgba(125, 60, 255, 0.2),
-        0 0 3px rgba(248, 240, 255, 0.26);
+        0 0 14px rgba(164, 118, 255, 0.24),
+        0 0 2px rgba(242, 236, 255, 0.18);
 
-      filter: saturate(1.38) brightness(1.2);
-      animation: shine 2.35s linear infinite;
+      filter: saturate(1.28) brightness(1.14);
+      animation: shine 5.6s linear infinite;
     }
   }
 
